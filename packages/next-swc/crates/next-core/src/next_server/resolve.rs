@@ -65,9 +65,9 @@ async fn is_node_resolveable(
         context,
         request,
         if is_esm {
-            node_cjs_resolve_options(context.root())
-        } else {
             node_esm_resolve_options(context.root())
+        } else {
+            node_cjs_resolve_options(context.root())
         },
     );
     let primary_node_assets = node_resolve_result.primary_sources().await?;
