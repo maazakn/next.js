@@ -164,8 +164,8 @@ export default async function Page({
   params: { username: string }
 }) {
   // Initiate both requests in parallel
-  const artistData = getArtist(username)
-  const albumsData = getArtistAlbums(username)
+  const artistData = await getArtist(username)
+  const albumsData = await getArtistAlbums(username)
 
   // Wait for the promises to resolve
   const [artist, albums] = await Promise.all([artistData, albumsData])
@@ -194,8 +194,8 @@ async function getArtistAlbums(username) {
 
 export default async function Page({ params: { username } }) {
   // Initiate both requests in parallel
-  const artistData = getArtist(username)
-  const albumsData = getArtistAlbums(username)
+  const artistData = await getArtist(username)
+  const albumsData = await getArtistAlbums(username)
 
   // Wait for the promises to resolve
   const [artist, albums] = await Promise.all([artistData, albumsData])
